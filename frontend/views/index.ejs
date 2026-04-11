@@ -1,11 +1,45 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+</head>
+<body>
+
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <button class="btn btn-create" onclick="openModal()">+ New Article</button>
+
+    <div id="articles-container">
+        <% articles.forEach(article => { %>
+            <div class="article-card" id="article-<%= article.id %>">
+                <h3>
+                    <a href="/article/<%= article.id %>" style="color: #007bff; text-decoration: none;">
+                        <%= article.title %>
+                    </a>
+                </h3>
+                <p><%= article.content.substring(0, 100) %>...</p>
+                </div>
+                <small><%= article.date %></small>
+                <div style="margin-top: 10px;">
+                    <button class="btn btn-edit" onclick="editArticle('<%= article.id %>', '<%= article.title %>', '<%= article.content %>')">Edit</button>
+                    <button class="btn btn-delete" onclick="deleteArticle('<%= article.id %>')">Delete</button>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closeModal()"></div>
+    <div id="modal">
+        <h2 id="modal-title">New Article</h2>
+        <input type="hidden" id="article-id">
+        <input type="text" id="input-title" placeholder="Title">
+        <textarea id="input-content" rows="4" placeholder="Content"></textarea>
+        <button class="btn btn-create" onclick="saveArticle()">Save</button>
+        <button class="btn" onclick="closeModal()">Cancel</button>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
 </html>

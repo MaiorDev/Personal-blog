@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= article.title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <a href="/" class="back-link">← Back to Dashboard</a>
+    <p class="date">Published on: <%= article.date %></p>
+    <h1><%= article.title %></h1>
+    <div class="content">
+        <%= article.content %>
+    </div>
+</body>
+</html>

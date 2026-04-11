@@ -1,8 +1,78 @@
+/* Global Styles */
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212;
+    color: #e0e0e0;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
 }
 
-a {
-  color: #00B7FF;
+/* Article Cards */
+.article-card {
+    background: #1e1e1e;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    transition: transform 0.2s;
+}
+
+.article-card:hover {
+    transform: translateY(-3px);
+    border-color: #007bff;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+.btn:hover { opacity: 0.8; }
+
+.btn-create { background: #28a745; color: white; }
+.btn-edit { background: #ffc107; color: #121212; }
+.btn-delete { background: #dc3545; color: white; }
+
+/* Modal & UI Elements */
+#modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #252525;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #444;
+    z-index: 10;
+    width: 90%;
+    max-width: 500px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(4px);
+}
+
+input, textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    background: #121212;
+    color: white;
+    border: 1px solid #444;
+    padding: 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
 }

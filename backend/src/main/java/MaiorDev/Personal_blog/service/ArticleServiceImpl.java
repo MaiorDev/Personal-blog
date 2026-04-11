@@ -61,11 +61,9 @@ public class ArticleServiceImpl implements ArticleService {
                 ArticleEnity updated = articleRepository.save(existingArticle);
                 ArticleDTO dto = new ArticleDTO(updated.getId(), updated.getTitle(), updated.getContent(), updated.getDate());
                 return new GenericResponse(0, "Article edited successfully", dto);
-
             }).orElseGet(() ->
                     new GenericResponse(2, "Article with ID " + id + " not found", null)
             );
-
         } catch (Exception e) {
             return new GenericResponse(1, "Failed to edit article: " + e.getMessage(), null);
         }
